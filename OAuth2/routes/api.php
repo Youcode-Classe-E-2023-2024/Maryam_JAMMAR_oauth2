@@ -3,7 +3,7 @@
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Api\AuthController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -37,10 +37,10 @@ Route::controller(UserController::class)->group(function() {
 //});
 
 Route::namespace('Api')->group(function () {
-
+    
     Route::prefix('auth')->group(function () {
-        Route::post('login', 'AuthController@login');
-        Route::post('signup', 'AuthController@register');
+        Route::post('login', [AuthController::class, 'login']);
+        Route::post('signup', [AuthController::class, 'register']);
     });
 
     Route::group([
