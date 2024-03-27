@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RoleController;
 use Illuminate\Support\Facades\Route;
@@ -37,6 +38,14 @@ Route::namespace('Api')->group(function () {
         Route::post('/role', [RoleController::class, 'store']);
         Route::post('/role/{id}', [RoleController::class, 'update']);
         Route::delete('/role/{id}', [RoleController::class, 'destroy']);
+
+        //permissions
+        Route::get('/permissions', [PermissionController::class, 'index']);
+        Route::get('/permission/{id}', [PermissionController::class, 'show']);
+
+        Route::post('/permission', [PermissionController::class, 'store']);
+        Route::post('/permission/{id}', [PermissionController::class, 'update']);
+        Route::delete('/permission/{id}', [PermissionController::class, 'destroy']);
 
         //users
         Route::get('/users', [UserController::class, 'index']);
