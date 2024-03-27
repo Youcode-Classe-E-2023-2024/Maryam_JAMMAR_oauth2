@@ -1,6 +1,9 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\Api\AuthController;
+
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,15 +16,35 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
+Route::controller(RoleController::class)->group(function() {
+    Route::get('/roles', 'index');
+    Route::get('/role/{id}', 'show');
+});
 
+Route::controller(RoleController::class)->group(function() {
+    Route::post('/role', 'store');
+    Route::post('/role/{id}', 'update');
+    Route::delete('/role/{id}', 'destroy');
+});
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+//Route::namespace('Api')->group(function (){
 
-Route::post('login', 'AuthController@login');
-Route::post('register', 'AuthController@register');
-Route::middleware('auth:api')->group(function () {
-    Route::get('user', 'AuthController@user');
-    // Other authenticated routes...
-});
+    Route::prefix('auth')->group(function (){
+        Route::post('login', 'AuthController@login');
+        Route::post('signup', 'AuthController@signup');
+    });
+
+    Route::group([
+       'middleware'=>'auth:api'
+    ], function (){
+
+        Route::get('helloworld', 'AuthController@index');
+
+    });
+
+
+//});
+
