@@ -48,6 +48,8 @@ Route::namespace('Api')->group(function () {
     ], function () {
 
         Route::get('helloworld', [AuthController::class, 'index']);
+        Route::post('logout', [AuthController::class, 'logout']);
+
     });
 });
 
