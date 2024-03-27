@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\RoleHasPermissionController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RoleController;
 use Illuminate\Support\Facades\Route;
@@ -46,6 +47,14 @@ Route::namespace('Api')->group(function () {
         Route::post('/permission', [PermissionController::class, 'store']);
         Route::post('/permission/{id}', [PermissionController::class, 'update']);
         Route::delete('/permission/{id}', [PermissionController::class, 'destroy']);
+
+        //role has permissions
+        Route::get('/role_has_permissions', [RoleHasPermissionController::class, 'index']);
+        Route::get('/role_has_permissions/{id}', [RoleHasPermissionController::class, 'show']);
+
+        Route::post('/role_has_permissions', [RoleHasPermissionController::class, 'store']);
+        Route::post('/role_has_permissions/{id}', [RoleHasPermissionController::class, 'update']);
+        Route::delete('/role_has_permissions/{id}', [RoleHasPermissionController::class, 'destroy']);
 
         //users
         Route::get('/users', [UserController::class, 'index']);
