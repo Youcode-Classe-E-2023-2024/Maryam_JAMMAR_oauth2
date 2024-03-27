@@ -37,7 +37,7 @@ Route::controller(UserController::class)->group(function() {
 //});
 
 Route::namespace('Api')->group(function () {
-    
+
     Route::prefix('auth')->group(function () {
         Route::post('login', [AuthController::class, 'login']);
         Route::post('signup', [AuthController::class, 'register']);
@@ -47,8 +47,7 @@ Route::namespace('Api')->group(function () {
         'middleware' => 'auth:api'
     ], function () {
 
-        Route::get('helloworld', 'AuthController@index');
-
+        Route::get('helloworld', [AuthController::class, 'index']);
     });
 });
 
