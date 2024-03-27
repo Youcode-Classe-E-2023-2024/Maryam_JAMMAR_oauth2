@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\RoleController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
 /*
@@ -25,13 +25,7 @@ Route::controller(RoleController::class)->group(function() {
     Route::delete('/role/{id}', 'destroy');
 });
 
-Route::controller(UserController::class)->group(function() {
-    Route::get('/users', 'index');
-    Route::get('/user/{id}', 'show');
-    Route::post('/user', 'store');
-    Route::post('/user/{id}', 'update');
-    Route::delete('/user/{id}', 'destroy');
-});
+
 //Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //    return $request->user();
 //});
@@ -46,6 +40,12 @@ Route::namespace('Api')->group(function () {
     Route::group([
         'middleware' => 'auth:api'
     ], function () {
+
+        Route::get('/users', [UserController::class, 'index']);
+        Route::get('/user/{id}', [UserController::class, 'show']);
+        Route::post('/user', [UserController::class, 'store']);
+        Route::post('/user/{id}', [UserController::class, 'update']);
+        Route::delete('/user/{id}', [UserController::class, 'destroy']);
 
         Route::get('helloworld', [AuthController::class, 'index']);
         Route::post('logout', [AuthController::class, 'logout']);
