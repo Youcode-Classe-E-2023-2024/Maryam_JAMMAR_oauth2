@@ -1,9 +1,7 @@
 <?php
 
 use App\Http\Controllers\RoleController;
-use App\Http\Controllers\Api\AuthController;
-
-use Illuminate\Support\Facades\Request;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,25 +24,31 @@ Route::controller(RoleController::class)->group(function() {
     Route::post('/role/{id}', 'update');
     Route::delete('/role/{id}', 'destroy');
 });
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+
+Route::controller(UserController::class)->group(function() {
+    Route::get('/users', 'index');
+    Route::get('/user/{id}', 'show');
+    Route::post('/user', 'store');
+    Route::post('/user/{id}', 'update');
+    Route::delete('/user/{id}', 'destroy');
 });
+//Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//    return $request->user();
+//});
 
-//Route::namespace('Api')->group(function (){
+Route::namespace('Api')->group(function () {
 
-    Route::prefix('auth')->group(function (){
+    Route::prefix('auth')->group(function () {
         Route::post('login', 'AuthController@login');
-        Route::post('signup', 'AuthController@signup');
+        Route::post('signup', 'AuthController@register');
     });
 
     Route::group([
-       'middleware'=>'auth:api'
-    ], function (){
+        'middleware' => 'auth:api'
+    ], function () {
 
         Route::get('helloworld', 'AuthController@index');
 
     });
-
-
-//});
+});
 
