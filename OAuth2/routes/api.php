@@ -14,16 +14,6 @@ use App\Http\Controllers\Api\AuthController;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
-Route::controller(RoleController::class)->group(function() {
-    Route::get('/roles', 'index');
-    Route::get('/role/{id}', 'show');
-});
-
-Route::controller(RoleController::class)->group(function() {
-    Route::post('/role', 'store');
-    Route::post('/role/{id}', 'update');
-    Route::delete('/role/{id}', 'destroy');
-});
 
 
 //Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
@@ -40,7 +30,15 @@ Route::namespace('Api')->group(function () {
     Route::group([
         'middleware' => 'auth:api'
     ], function () {
+        //roles
+        Route::get('/roles', [RoleController::class, 'index']);
+        Route::get('/role/{id}', [RoleController::class, 'show']);
 
+        Route::post('/role', [RoleController::class, 'store']);
+        Route::post('/role/{id}', [RoleController::class, 'update']);
+        Route::delete('/role/{id}', [RoleController::class, 'destroy']);
+
+        //users
         Route::get('/users', [UserController::class, 'index']);
         Route::get('/user/{id}', [UserController::class, 'show']);
         Route::post('/user', [UserController::class, 'store']);
