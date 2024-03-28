@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bb9d0827-6aac-449d-b0e1-f2e1a9eda71d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/OAuth2/app/Http/Controllers/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/OAuth2/app/Http/Controllers/Controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OAuth2/app/Http/Controllers/RoleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/OAuth2/app/Http/Controllers/RoleController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OAuth2/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/OAuth2/app/Http/Kernel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OAuth2/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/OAuth2/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OAuth2/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/OAuth2/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OAuth2/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/OAuth2/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OAuth2/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/OAuth2/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -55,7 +52,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1711412052363</updated>
-      <workItem from="1711412053357" duration="48030000" />
+      <workItem from="1711412053357" duration="49548000" />
     </task>
     <servers />
   </component>
