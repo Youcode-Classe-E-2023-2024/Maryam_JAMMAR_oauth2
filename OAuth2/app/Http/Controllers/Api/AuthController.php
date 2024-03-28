@@ -49,7 +49,7 @@ class AuthController extends Controller
         ]);
         $user->save();
         return response()->json([
-            "message" => "User registred successfully"
+            "message" => "User registered successfully"
         ], 201);
     }
 
