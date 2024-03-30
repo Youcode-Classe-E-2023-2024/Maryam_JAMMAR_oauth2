@@ -12,10 +12,6 @@ class AuthController extends Controller
 {
     public function login(Request $request)
     {
-//        $request->validate([
-//            'email' => 'required|string',
-//            'password' => 'required|string'
-//        ]);
         $credentials = request(['email', 'password']);
 
         if(!Auth::attempt($credentials)){
@@ -34,13 +30,6 @@ class AuthController extends Controller
 
     public function register(Request $request)
     {
-//        $request->validate([
-//           'name' => 'required|string',
-//            'email' => 'required|string|unique:users,email,',
-//            'password' => 'required|string|min:8',
-//            'role' => 'required|exists:roles,id',
-//        ]);
-
         $user = new User([
             'name' => $request->name,
             'email' => $request->email,

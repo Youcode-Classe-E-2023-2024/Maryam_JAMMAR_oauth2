@@ -8,6 +8,37 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
+/**
+ *@OA\Post(
+ *    path="/api/users",
+ *    summary="Users data",
+ *    tags={"Users"},
+ *@OA\Parameter(
+ *    name="name",
+ *    in="query",
+ *    description="",
+ *    required=true,
+ *    @OA\Schema(type="string")
+ *),
+ *@OA\Parameter(
+ *    name="criteria",
+ *    in="query",
+ *    description="Some optional other parameter",
+ *    required=false,
+ *    @OA\Schema(type="string")
+ *),
+ *@OA\Response(
+ *    response="200",
+ *    description="Returns some sample category things",
+ *    @OA\JsonContent()
+ *),
+ *@OA\Response(
+ *    response="400",
+ *    description="Error: Bad request. When required parameters were not supplied.",
+ *),
+ *)
+ */
+
 class UserController extends Controller
 {
     public function index()

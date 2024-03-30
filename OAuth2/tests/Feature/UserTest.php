@@ -16,10 +16,10 @@ class UserTest extends TestCase
     public function testRegister()
     {
         $userData = [
-            'name' => 'Test User',
-            'email' => 'mouhcine4@gmail.com',
-            'password' => 'password',
-            'role' => 6,
+            'name' => 'Sara',
+            'email' => 'sara1111@gmail.com',
+            'password' => 'password123',
+            'role' => 2,
         ];
 
         $response = $this->json('POST', '/api/auth/signup', $userData);
@@ -29,4 +29,5 @@ class UserTest extends TestCase
                 'message' => 'User registered successfully'
             ]);
     }
+
 }
